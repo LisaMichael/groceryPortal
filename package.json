@@ -1,7 +1,7 @@
 {
   "name": "groceryportal",
   "version": "1.0.0",
-  "description": "",
+  "description": "Link to Site:",
   "main": "index.js",
   "scripts": {
     "test": "mocha || true",

@@ -1,6 +1,8 @@
 //display all inventory in the SQL database using Sequelize GET 
 //borrowed code from the book activity in GitLab
 $("#dept-btn").on("click", function () {
+
+    var deptSearched= $("#author-search").val().trim();
     event.preventDefault()
     queryParam = $('input[name="searchParam"]:checked').val();
     queryKeyword = $('input[name="searchParam"]:checked').val();

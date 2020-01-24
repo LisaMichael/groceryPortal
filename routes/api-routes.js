@@ -23,11 +23,11 @@ module.exports = function (app) {
     });
 
     //get displays items whose names matches users query as a JSON object 
-    app.get("/api/item/:item", function (req, res) {
-        if (req.param.item_name) {
+    app.get("/api/search", function (req, res) {
+        if (req.params.item_name) {
             db.Inventories.findAll({
                 where: {
-                    name: req.param.item_name
+                    name: req.params.item_name
                 }
             }).then(function (results) {
                 res.json(results);
@@ -37,7 +37,7 @@ module.exports = function (app) {
 
     //get location data
     app.get("/api/location/:location", function (req, res) {
-        if (req.param.aisle_number) {
+        if (req.params.aisle_number) {
             db.Inventories.findAll({
                 where: {
                     location: req.param.aisle_number
@@ -53,34 +53,61 @@ module.exports = function (app) {
     // add a book  - video - time ; 8:51 
     //https://www.youtube.com/watch?v=dt9mXaEEAkM
 
-    app.post("/api/posts", function (req, res) {
-        db.Inventories.create({
-            id: req.body.id,
-            item_name: req.body.item_name,
-            price: req.body.price,
-            quantity: req.body.quantity,
-            aisle_name: req.body.aisle_number,
-            createdAt: req.body.createdAt,
-            updatedAt: req.body.updatedAt
-        }).then(function (dbInventories) {
-            console.log(dbInventories)
+    app.post("/api/Inventories", function (req, res) {
+        // db.Inventories.create({
+        //     id: req.params.id,
+        //     item_name: req.params.item_name,
+        //     price: req.params.price,
+        //     quantity: req.params.quantity,
+        //     aisle_name: req.params.aisle_number,
+        //     createdAt: req.params.createdAt,
+        //     updatedAt: req.params.updatedAt
+        // }).then(function (dbInventories) {
+        //     console.log(dbInventories);
 
-        });
+        // });
     });
     //notify about item data
 
+ // Delete a book
+ app.delete("/api/item/:id", function(req, res) {
+    console.log("Inventory ID:");
+    console.log(req.params.id);
+    Inventories.destroy({
+      where: {
+        id
+      }
+    }).then(function() {
+      res.end();
+    });
+  });
+
+  app.post("/api/posts", function(req,res){
+      db.Inventories.create({
+          item_name:req.body.item_name,
+         department:req.body.department,
+         price:req.body.price,
+         quantity:req.body.quantity,
+         aisle_number:req.body.aisle_number
+      }).then(function(result){
+          res.json(result);
+      })
+  })
+
     //get dept by department
-    app.get("/inventories", function (req, res) {
-        if (req.param.department) {
+    app.get("/deptSearch:dept", function (req, res) {
+        if (req.params.dept) {
             db.Inventories.findAll({
                 where: {
-                    department: {
-                        produce
-                    }
+                    department: 
+                    req.params.dept
+                    
                 }
             }).then(function (results) {
                 res.json(results);
             });
         }
     });
+
+    
 };

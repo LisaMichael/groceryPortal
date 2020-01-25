@@ -45,8 +45,8 @@ module.exports = function (app) {
 
 // specialist route loads the add.html page, where the specialist add inventory
 
-app.get("/add", function (req, res) {
-  res.sendFile(path.join(__dirname, "../public/add.html"));
+app.get("/new", function (req, res) {
+  res.sendFile(path.join(__dirname, "../public/new.html"));
 });
 
 // specialist route loads the add.html page, where the specialist remove inventory

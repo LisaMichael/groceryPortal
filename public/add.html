@@ -17,8 +17,8 @@
   <!-- adding JQuery-->
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
-  <script src="js/add.js" type="text/javascript"></script>
-  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <script src="./js/add.js" type="text/javascript"></script>
+  <link href="./css/style.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -59,7 +59,7 @@
   <!-- <hr> -->
   <!-- <div class="row container"> -->
   <hr>
-  <a href='./add' class='btn btn-primary btn-lg'>
+  <a href='/add' class='btn btn-primary btn-lg' id="add">
     <span class='fa fa-list'></span> Add Inventory</span>
   </a>
   <a href='/remove' class='btn btn-primary btn-lg'>
@@ -76,68 +76,73 @@
   <div class="row container">
 
     <!--form to display inventory-->
-    
-    <form action="" method="POST" role="form">
-        <div class="form-group">
-            <label form"">Department</label>
-            <select id = "department">
-                <option value = "1">Baby</option>
-                <option value = "2">Bakery</option>
-                <option value = "3">Bread</option>
-                <option value = "4">Bulk</option>
-                <option value = "5">Cereal</option>
-                <option value = "6">Chips</option>
-                <option value = "7">Cleaning</option>
-                <option value = "8">Clearance</option>
-                <option value = "9">Cookies</option>
-                <option value = "10">Diary</option>
-                <option value = "11">Deli</option>
-                <option value = "12">Florist</option>
-                <option value = "13">Frozen</option>
-                <option value = "14">Magazines</option>
-                <option value = "15">Meat</option>
-                <option value = "16">Pets</option>
-                <option value = "17">Produce</option>
-                <option value = "18">Seafood</option>
-                <option value = "19">Seasonal</option>
-                <option value = "20">Soda</option>
-                <option value = "21">Soup</option>
-                <option value = "22">Spices</option>
-                <option value = "23">Wine</option>
 
-              </select>
-            <!-- <input type="list" class="form-control" id="department" placeholder=""> -->
-          </div>
+    
+    <form role="form">
+      <div class="form-group">
+         
+        <label>Department</label>
+        <select id="department">
+          <option value="baby">Baby</option>
+          <option value="bakery">Bakery</option>
+          <option value="bread">Bread</option>
+          <option value="bulk">Bulk</option>
+          <option value="cereal">Cereal</option>
+          <option value="6">Chips</option>
+          <option value="7">Cleaning</option>
+          <option value="8">Clearance</option>
+          <option value="9">Cookies</option>
+          <option value="10">Diary</option>
+          <option value="11">Deli</option>
+          <option value="12">Florist</option>
+          <option value="13">Frozen</option>
+          <option value="14">Magazines</option>
+          <option value="15">Meat</option>
+          <option value="16">Pets</option>
+          <option value="produce">Produce</option>
+          <option value="18">Seafood</option>
+          <option value="19">Seasonal</option>
+          <option value="20">Soda</option>
+          <option value="21">Soup</option>
+          <option value="spices">Spices</option>
+          <option value="wine">inWe</option>
+
+        </select>
+        <!-- <input type="list" class="form-control" id="department" placeholder=""> -->
+      </div>
       <div class="form-group">
           <!-- <form action="" method="POST" role="form"> -->
-        <label form"" >Item Name</label>
+        <label>Item Name</label>
         <input type="text" class="form-control" id="item_name" placeholder="Enter Item Name" required>
       </div>
 
       <div class="form-group">
-        <label form"">Price</label>
+        <label>Price</label>
         <input type="text" class="form-control" id="price" placeholder="Enter Price" required>
       </div>
 
       <div class="form-group">
-        <label form"">Quantity</label>
-        <input type="text" class="form-control" id="quantity" placeholder="Value greater than zero"  required>
+        <label>Quantity</label>
+        <input type="text" class="form-control" id="quantity" placeholder="Value greater than zero" required>
       </div>
 
       <div class="form-group">
-        <label form"">Aisle Number</label>
+        <label>Aisle Number</label>
         <input type="text" class="form-control" id="aisle_number" placeholder="Enter Aisle Number" required>
       </div>
 
+      
       <!--submit button code-->
-      <button type="submit" class="btn btn-primary btn-md" id="add-btn">
-          <span class glyphicon glyphicon-book"></span> Add
-        </button>
+      <button type="reset" class="btn btn-primary btn-sm" id="reset-btn"> <span class="glyphicon glyphicon-book"></span> Reset</button>
+      <button type="submit" class="btn btn-primary btn-sm" id="add-btn">
+        <span class="glyphicon glyphicon-book"></span> Add
+      </button>
+    
     </form>
   </div>
   <!--end div row2-->
 
-  
+
   <!-- <div class="row container">
     <div class="text-right">
      
@@ -149,6 +154,46 @@
 
   </div>
   <!--end div for main-->
+
+  <script>
+    $("#add-btn").on("click", function (event) {
+  event.preventDefault();
+  console.log("Inside add.js");
+
+  // Make a new object
+  var newItem = {
+    item_name: $("#item_name").val().trim(),
+    department: $("#department").val().trim(),
+    price: $("#price").val().trim(),
+    quantity: $("#quantity").val().trim(),
+    aisle_number: $("#aisle_number").val().trim()
+  };
+  console.log(newItem);
+
+  // Send an AJAX POST-request with jQuery
+  $.post("/api/posts", newItem)
+    // On success, run the following code
+    .then(function (data) {
+      // Log the data we found
+      console.log(data);
+      // newItem
+      //   .create({
+      //     item_name: $("#item_name").val().trim(),
+      //     price: $("#price").val().trim(),
+      //     quantity: $("#quantity").val().trim(),
+      //     aisle_number: $("#aisle_number").val().trim()
+      //   })
+    });
+
+  // Empty each input box by replacing the value with an empty string
+  $("#item_name").val("");
+  $("#price").val("");
+  $("#quantity").val("");
+  $("#aisle_number").val("");
+
+  
+});
+  </script>
 
 </body>
 

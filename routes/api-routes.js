@@ -49,24 +49,9 @@ module.exports = function (app) {
     });
 
 
-    //add grocery data
-    // add a book  - video - time ; 8:51 
-    //https://www.youtube.com/watch?v=dt9mXaEEAkM
+    
 
-    app.post("/api/Inventories", function (req, res) {
-        // db.Inventories.create({
-        //     id: req.params.id,
-        //     item_name: req.params.item_name,
-        //     price: req.params.price,
-        //     quantity: req.params.quantity,
-        //     aisle_name: req.params.aisle_number,
-        //     createdAt: req.params.createdAt,
-        //     updatedAt: req.params.updatedAt
-        // }).then(function (dbInventories) {
-        //     console.log(dbInventories);
-
-        // });
-    });
+    
     //notify about item data
 
  // Delete a book
@@ -82,6 +67,9 @@ module.exports = function (app) {
     });
   });
 
+  //add grocery data
+    // add a book  - video - time ; 8:51 
+    //https://www.youtube.com/watch?v=dt9mXaEEAkM
   app.post("/api/posts", function(req,res){
       db.Inventories.create({
           item_name:req.body.item_name,

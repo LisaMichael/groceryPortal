@@ -1,3 +1,5 @@
+// import { stringify } from "querystring";
+
 // basic click events for going to the various pages in the application
 //https://stackoverflow.com/questions/52229901/navigate-to-route-on-button-click/52230237
 
@@ -7,6 +9,7 @@ $(document).ready(function () {
         method: 'GET',
         success: (data) => {
             console.log(data)
+            
         }
     })
     //on click event for the "All Inventory" Button

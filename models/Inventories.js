@@ -5,6 +5,9 @@ module.exports = function (sequelize, DataTypes) {
         price: DataTypes.INTEGER,
         quantity: DataTypes.INTEGER,
         aisle_number: DataTypes.INTEGER
-    });
+    
+    }, 
+    //my attempt to fix the timestamp of createdAt and updatedAt
+    {timestamps: false});
     return Inventories;
 };

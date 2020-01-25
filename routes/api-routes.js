@@ -49,47 +49,47 @@ module.exports = function (app) {
     });
 
 
-    
 
-    
+
+
     //notify about item data
 
- // Delete a book
- app.delete("/api/item/:id", function(req, res) {
-    console.log("Inventory ID:");
-    console.log(req.params.id);
-    Inventories.destroy({
-      where: {
-        id
-      }
-    }).then(function() {
-      res.end();
+    // Delete a book
+    app.delete("/api/item/:id", function (req, res) {
+        console.log("Inventory ID:");
+        console.log(req.params.id);
+        Inventories.destroy({
+            where: {
+                id
+            }
+        }).then(function () {
+            res.end();
+        });
     });
-  });
 
-  //add grocery data
+    //add grocery data
     // add a book  - video - time ; 8:51 
     //https://www.youtube.com/watch?v=dt9mXaEEAkM
-  app.post("/api/posts", function(req,res){
-      db.Inventories.create({
-          item_name:req.body.item_name,
-         department:req.body.department,
-         price:req.body.price,
-         quantity:req.body.quantity,
-         aisle_number:req.body.aisle_number
-      }).then(function(result){
-          res.json(result);
-      })
-  })
+    app.post("/api/posts", function (req, res) {
+        db.Inventories.create({
+            item_name: req.body.item_name,
+            department: req.body.department,
+            price: req.body.price,
+            quantity: req.body.quantity,
+            aisle_number: req.body.aisle_number
+        }).then(function (result) {
+            res.json(result);
+        })
+    })
 
     //get dept by department
     app.get("/deptSearch:dept", function (req, res) {
         if (req.params.dept) {
             db.Inventories.findAll({
                 where: {
-                    department: 
-                    req.params.dept
-                    
+                    department:
+                        req.params.dept
+
                 }
             }).then(function (results) {
                 res.json(results);
@@ -97,5 +97,5 @@ module.exports = function (app) {
         }
     });
 
-    
+
 };

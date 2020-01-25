@@ -1,15 +1,23 @@
 //display all inventory in the SQL database using Sequelize GET 
 //borrowed code from the book activity in GitLab
 $("#dept-btn").on("click", function () {
-
-    var deptSearched= $("#author-search").val().trim();
     event.preventDefault()
+
+//  var deptSearched;
+
+//  switch(deptSearched)
+//  {
+
+
+//  }
+
     queryParam = $('input[name="searchParam"]:checked').val();
     queryKeyword = $('input[name="searchParam"]:checked').val();
     console.log(queryKeyword)
     console.log(queryParam)
     console.log(typeof queryParam)
-    $.get("/inventories", function (data) {
+    // $.get("/inventories", function (data) {
+        $.get("/deptSearch"+queryParam,function (data){
         // For each item that the server sends us back
         for (var i = 0; i < data.length; i++) {
             // Create a parent div to hold inventory data
@@ -30,4 +38,6 @@ $("#dept-btn").on("click", function () {
         }
     });
     // Make a get request to our api route that will return every grocery item in inventory
+
+
 });

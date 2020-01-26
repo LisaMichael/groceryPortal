@@ -5,10 +5,11 @@
   <meta charset="UTF-8">
 
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Remove Inventory</title>
+  <title>About FishEye Inventory</title>
 
   <!-- adding reset css file  -->
-  <link href="css/reset.css" rel="stylesheet" type="text/css">
+  <!-- <link href="../public/css/reset.css" rel="stylesheet" type="text/css"> -->
+  <link rel="stylesheet" type="text/css" href="css/reset.css" />
 
   <!-- adding Bootstrap-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -17,8 +18,10 @@
   <!-- adding JQuery-->
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
-  <link href="css/style.css" rel="stylesheet" type="text/css">
 
+  <!-- styling css -->
+  <!-- <link href="../public/css/style.css" rel="stylesheet" type="text/css"> -->
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
 <body>
@@ -42,67 +45,36 @@
           <a class="nav-link" href="search.html">Search</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="specialist.html">Inventory Specialist</a>
+          <a class="nav-link" href="specialist.html">Inventory Specialist</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="all.html">All Inventory</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="locate.html">Locate</a>
+          <a class="nav-link active" href="locate.html">Locate</a>
         </li>
       </ul>
   </nav>
 
-  <div class="container" id="main"></div>
-  <h2> Inventory Specialist Remove Page</h2>
-  <!-- <hr> -->
-  <!-- <div class="row container"> -->
-  <hr>
-  <a href='/add' class='btn btn-primary btn-lg'>
-    <span class='fa fa-list'></span> Add Inventory</span>
-  </a>
-  <a href='/remove' class='btn btn-primary btn-lg'>
-    <span class='fa fa-list'></span> Remove Inventory</a>
-  <a href='/modify' class='btn btn-primary btn-lg'>
-    <span class='fa fa-th-list'></span> Modify Inventory</a>
-  <a href='/stock' class='btn btn-primary btn-lg'>
-    <span class='fa fa-th-list'></span> Stock Inventory</a>
-  <hr>
+  <div class="container" id="main">
+    <h1>Locate </h1>
+    <div class="row container">
 
-
-
-  <div class="row container">
-
-
-
-    <div class="form-group">
-      <br>
-      <label form""><b>Enter Item to be removed</b></label>
-      <input type="text" class="form-control" value="item_name" name="searchParam" id="item_name" placeholder="Item Name">
+        <p1>row1 --  Locate item / <map name="../public/images/floorplan.png">public/images/floorplan.png</map> <p1>functionality here</p1> 
+      <img src="">
+     
     </div>
+    <!--end div  row1-->
 
-  </div>
-  <!--end div  row-->
-
-
-  <div class="row container">
-
-    <div class="text-right">
-      <button type="submit" class="btn btn-primary btn-md" id="remove-btn">
-        Submit
-      </button>
+    <div class="row container">
+      <p1>row2 -- row for submit button</p1>
     </div>
+    <!--end div row2-->
   </div>
+  <!--end div for main-->
 
-  <div class="row container">
-
- <!--SQL TABLE SHOULD SHOW HERE-->
- <div class="card-body" id="SQLtable">
-
-</div>
-  </div> <!--end of Row-->
-  </div>
   <!--end of main div-->
+
 
 </body>
 

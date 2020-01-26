@@ -14,9 +14,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-  <!-- adding JQuery-->
+  <!-- adding JQuery
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> -->
 
   <!-- styling css -->
   <link href="css/style.css" rel="stylesheet" type="text/css">
@@ -52,7 +52,7 @@
           <a class="nav-link" href="all.html">All Inventory</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="locate.html">Locate</a>
         </li>
       </ul>
   </nav>
@@ -68,11 +68,12 @@
     <!--end of row 2-->
     <div class="row container">
       <form>
-        <input type="radio" name="searchParam" value="id"> ID<br>
-        <input type="radio" name="searchParam" value="item_number"> Item Number<br>
-        <input type="radio" name="searchParam" value="name" checked> Name<br>
+        <input type="radio" name="searchParam" value="id" id="id"> ID<br>
+        <input type="radio" name="searchParam" value="aisle_number" id="location"> Aisle Number<br>
+        <input type="radio" name="searchParam" value="item_name" id="item_name" checked> Name<br>
       </form>
 
+    
     </div>
 
     <div class="row container">
@@ -91,7 +92,7 @@
   <div class="row container">
 
     <div class="text-right">
-      <button type="submit" class="btn btn-primary btn-md" id="add-btn">
+      <button type="submit" class="btn btn-primary btn-md" id="search-btn">
         Submit
       </button>
     </div>
@@ -99,7 +100,48 @@
   </div>
   <!--end of main div-->
 
-  <script src="/js/search.js" ></script>
+  <div id="SQLtableDept">
+    <!--THIS IS WHERE THE DEPARTMENT TABLE SHOULD APPEAR-->
+  </div>
+
+  <!-- adding JQuery-->
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+
+  <!-- <script src="/js/search.js" ></script> -->
+  <script src="js/search.js"></script>
+  <!-- <script>
+    $("#add-btn").on("click", function () {
+        event.preventDefault()
+        queryParam = $('input[name="searchParam"]:checked').val();
+        queryKeyword = $("#submit-search").val();
+        console.log(queryKeyword)
+        console.log(queryParam)
+        console.log(typeof queryParam)
+        // querySearch()
+
+        $.get("/search/"+queryParam,function (data){
+            // For each item that the server sends us back
+            for (var i = 0; i < data.length; i++) {
+                // Create a parent div to hold inventory data
+                var itemInventory = $("<div>");
+                // Add a class to this div: 'well'
+                itemInventory.addClass("SQLtableDept");
+                // Add an id to the well to mark which well it is
+                itemInventory.attr("id", "item-inventory-" + i);
+                // Append the well to the well section
+                $("#SQLtableDept").append(itemInventory);
+    
+                // Now  we add our book data to the section we just placed on the page
+                $("#item-inventory-" + i).append("<h6><b>Item:</b> " + data[i].item_name + "</h6>");
+                $("#item-inventory-" + i).append("<h6><b>Price:</b> " + data[i].price + "</h6>");
+                $("#item-inventory-" + i).append("<h6><b>Quantity:</b> " + data[i].quantity + "</h6>");
+                $("#item-inventory-" + i).append("<h6><b>Aisle Number:</b> " + data[i].aisle_number + "</h6>");
+                $("#item-inventory-" + i).append("<hr>");
+            }
+        });
+    })</script> -->
 </body>
 
 </html>

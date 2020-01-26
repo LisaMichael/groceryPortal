@@ -28,7 +28,7 @@ Instead of trying to maintain grocery store inventory on a flat Excel spreadshee
 1. All Inventory should call from all of the items in the SQL database
 
 ### Who maintains and contributes to the project
-This project was made for a coding boot camp course. This was a collaborative project required of the coding boot camp course. This is maintained by @kayhern (the owner of this GitHub repo), @LisaMichael, @Mario-cyber. 
+This project was made for a coding boot camp course. This was a collaborative project required of the coding boot camp course. This is maintained by @LisaMichael (the owner of this GitHub repo), @KayHern, @Mario-cyber. 
 
 ### Video of Functionality
 Link: https://drive.google.com/file/d/1lkHOQXNTZSjoSjP9kEWBZ7mnVDnhTlO2/view

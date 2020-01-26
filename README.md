@@ -26,9 +26,12 @@ Instead of trying to maintain grocery store inventory on a flat Excel spreadshee
 1. Click on the link above to deploy the site
 1. Navigate using the buttons on the homepage
 1. All Inventory should call from all of the items in the SQL database
+1. Search By Dept will display all items in that specific Department.
+1. Inventory Specialist can add items to inventory.
+
 
 ### Who maintains and contributes to the project
-This project was made for a coding boot camp course. This was a collaborative project required of the coding boot camp course. This is maintained by @LisaMichael (the owner of this GitHub repo), @KayHern, @Mario-cyber. 
+This project was made for a coding boot camp course. This was a collaborative project required of the coding boot camp course. This repo is maintained by @LisaMichael (the owner of this GitHub repo), @KayHern, @Mario-cyber. 
 
 ### Video of Functionality
 Link: https://drive.google.com/file/d/1lkHOQXNTZSjoSjP9kEWBZ7mnVDnhTlO2/view
